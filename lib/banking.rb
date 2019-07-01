@@ -1,23 +1,35 @@
+# frozen_string_literal: true
+
 class BankAccount
-	attr_reader :balance
-	
-	ACCOUNT_BALANCE = 0
+  attr_reader :balance
 
-	def initialize(balance = ACCOUNT_BALANCE)
-		@balance = balance
-	end
+  ACCOUNT_BALANCE = 0
 
-	def deposit(amount)
-		@balance += amount
-	end
+  def initialize(balance = ACCOUNT_BALANCE)
+    @balance = balance
+    @transactions = []
+  end
 
-	def withdraw(amount)
-		raise 'Account has insufficient funds!' if @balance < amount
-		@balance -= amount	
-	end
+  def deposit(date, credit)
+    @balance += credit
+    transaction = Transaction.new(date, credit, 0, @balance)
+    @transactions << transaction
+  end
 
-	def current_balance
-		return "The account balance is #{@balance}"
-	end
+  def withdraw(date, debit)
+    raise 'Account has insufficient funds!' if @balance < debit
 
+    @balance -= debit
+    transaction = Transaction.new(date, 0, debit, @balance)
+    @transactions << transaction
+  end
+
+  def account_statement
+    header = 'date || credit || debit || balance'
+    transaction_string =''
+    @transactions.reverse.each do |record|
+      transaction_string = transaction_string + "\n" + "#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
+    end
+    return header + '\n' + transaction_string
+  end
 end
