@@ -9,13 +9,11 @@ class BankAccount
 
 	def deposit(amount)
 		@balance += amount
-		return @balance
 	end
 
 	def withdraw(amount)
 		raise 'Account has insufficient funds!' if @balance < amount
-		@balance -= amount
-		return @balance		
+		@balance -= amount	
 	end
 
 	def current_balance
