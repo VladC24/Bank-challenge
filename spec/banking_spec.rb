@@ -33,9 +33,7 @@ describe BankAccount do
     it('displays the current account statement') do
       account.deposit('10/01/2012', 1000)
       account.withdraw('14/01/2012', 500)
-      expect(account.account_statement).to include("date || credit || debit || balance")
-      expect(account.account_statement).to include("14/01/2012 || 0 || 500 || 500")
-      expect(account.account_statement).to include("10/01/2012 || 1000 || 0 || 1000")
+      expect{account.account_statement}.to output("date || credit || debit || balance\n14/01/2012 || 0 || 500 || 500\n10/01/2012 || 1000 || 0 || 1000\n").to_stdout
     end
   end
 end

@@ -25,11 +25,10 @@ class BankAccount
   end
 
   def account_statement
-    header = 'date || credit || debit || balance'
-    transaction_string =''
+    puts 'date || credit || debit || balance'
+    
     @transactions.reverse.each do |record|
-      transaction_string = transaction_string + "\n" + "#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
+      puts "#{record.date} || #{record.credit} || #{record.debit} || #{record.balance}"
     end
-    return header + '\n' + transaction_string
   end
 end
