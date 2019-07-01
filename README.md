@@ -14,7 +14,17 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+### Technologies
+* Ruby
+* RSpec
+* SimpeCov
+* Rubocop
 
 ### Instructions
 Clone the repo and run `bundle install`. Open IRB and have fun!
 
+### Quality of code
+* 100% test coverage
+* Rubocop linter passes
+* All tests passing
+* Commits are regular, have good descriptions
