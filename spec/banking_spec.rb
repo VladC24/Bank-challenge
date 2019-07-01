@@ -27,4 +27,10 @@ describe BankAccount do
 		end
 	end
 
+	describe '#current_balance' do
+		it('displays the current account balance') do
+			account.deposit(1000)
+			expect(account.current_balance).to eq("The account balance is 1000")
+		end
+	end
 end

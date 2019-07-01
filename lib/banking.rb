@@ -18,4 +18,8 @@ class BankAccount
 		return @balance		
 	end
 
+	def current_balance
+		return "The account balance is #{@balance}"
+	end
+
 end
