@@ -14,4 +14,17 @@ describe BankAccount do
 		end
 	end
 
+	describe '#withdraw' do
+		before {account.deposit(2000)}
+
+		it('user is able to withdraw') do
+			account.withdraw(500)
+			expect(account.balance).to eq(1500)
+		end
+
+		it('raises an error if insufficient funds in the account') do			
+			expect{ account.withdraw(2050) }.to raise_error('Account has insufficient funds!')
+		end
+	end
+
 end
