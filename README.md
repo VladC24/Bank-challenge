@@ -21,7 +21,31 @@ date || credit || debit || balance
 * Rubocop
 
 ### Instructions
-Clone the repo and run `bundle install`. Open IRB and have fun!
+Clone the repo and run `bundle install`. For running the tests, open the command line and run `rspec`. It will also show the coverage of the tests. 
+
+* For feature testing, open IRB and type in:
+```
+$  require './lib/banking.rb'
+$  require './lib/transaction.rb'
+$  account = BankAccount.new
+```
+* For crediting the account:
+```
+$  account.deposit('30/06/2019', 1000)
+```
+
+* For debiting the account:
+```
+$  account.withdraw('01/07/2019', 500)
+```
+
+* For displaying the statement
+```
+$  account.account_statement
+```
+
+### Photos
+![](./images/feature_testing.jpg)
 
 ### Quality of code
 * 100% test coverage
